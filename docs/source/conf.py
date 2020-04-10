@@ -78,7 +78,11 @@ autodoc_mock_imports = ['osmnx',
                         'pandas',
                         'pyproj',
                         'gurobipy',
-                        'pdppy'
+                        'pdppy',
+                        'instances',
+                        'algorithms',
+                        'plot',
+                        'helper'
                         ]
 autosummary_generate = True
 autosummary_generate_overwrite = True
