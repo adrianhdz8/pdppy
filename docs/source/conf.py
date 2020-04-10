@@ -12,18 +12,9 @@ import sphinx_rtd_theme
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+import os
 import sys
-# import pyproj
-module_path = '/Users/adrianhernandez/Documents/Python/PDPTSP/pdppy'
-sys.path.append('/Users/adrianhernandez/Documents/Python/PDPTSP/pdppy')
-sys.path.append('/Users/adrianhernandez/anaconda3/envs/ox/lib')
-package_path = '/Users/adrianhernandez/anaconda3/envs/ox/lib/python3.7/site-packages'
-sys.path.append(package_path)
-project_path = '/Users/adrianhernandez/Documents/Python/PDPTSP'
-sys.path.append(project_path)
-
-# pyproj.datadir.set_data_dir('/Users/adrianhernandez/anaconda3/envs/ox/lib'
-#                              '/python3.7/site-packages')
+sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
@@ -78,6 +69,16 @@ html_static_path = ['_static']
 
 # Removes errors from attempting to import packages when some external
 # dependencies are not met at build time.
-autodoc_mock_imports = ['osmnx']
+autodoc_mock_imports = ['osmnx',
+                        'geopandas',
+                        'matplotlib',
+                        'matplotlib.pyplot',
+                        'networkx',
+                        'numpy',
+                        'pandas',
+                        'pyproj',
+                        'gurobipy',
+                        'pdppy'
+                        ]
 autosummary_generate = True
 autosummary_generate_overwrite = True
