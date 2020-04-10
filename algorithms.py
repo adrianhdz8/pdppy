@@ -12,25 +12,25 @@ representation of the tour which contains the edges in the final solution
 produced by the algorithm or solver. The implementations represent a series
 of developed algorithms, heuristics, integer programming and linear
 programming solvers for instances of the PDP.
+
+All functions follow the same basic structure:
+    Parameters
+    ----------
+    H: graph
+        :ref:`Request graph<Request (PDP) Graph>` instance.
+
+    Returns
+    -------
+    P: graph
+        :ref:`PDP tour<Tour Graph>` solution.
+        Contains all attributes from H.
+        Contains only the edges representative of the final tour.
+        Edges have additional attribute *'value'* set to *1* if the
+        edge is contained in the final tour. (All edges in **P** should
+        have attribute *'value' == 1* with the exception of **P** found from
+        :ref:`linear\_prog<Algorithms>` which may have fractional solutions.)
+
 """
-
-# All functions follow the same basic structure:
-#     Parameters
-#     ----------
-#     H: graph
-#         The graph of the PDP instance.
-#
-#     Returns
-#     -------
-#     P: graph
-#         PDP tour solution.
-#         Contains all attributes from H.
-#         Contains only the edges representative of the final tour.
-#         Edges have additional attribute 'value' set to 1 if the
-#         edge is contained in the final tour. (All edges in P should
-#         have attribute 'value' == 1.)
-
-# TODO: Parameters and Returns not being output well in docs, restructure.
 
 import networkx as nx
 import heapq
