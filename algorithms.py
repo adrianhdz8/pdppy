@@ -216,11 +216,6 @@ def cheapest_feasible_insertion(H):
         feasible edge insertion, and
 
         3. Adds edge **{s,t}** to path to produce final tour **P**.
-
-    References
-    ----------
-    .. [1] Include reference (Mosheiov?).
-
     """
 
     s = H.graph['s']
