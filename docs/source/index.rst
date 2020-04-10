@@ -1,9 +1,9 @@
 Welcome to pdpy's documentation!
 ================================
 
-pdpy is a Python package for working with instances of the Pickup Delivery Problem (:ref:`PDP<PDP>`). 
+**pdppy** is a Python package for working with instances of the Pickup Delivery Problem (:ref:`PDP<PDP>`). 
 This package generates instances of the PDP from the user's input and provides a toolbox for solving these instances through 
-combinatorial or IP (Integer Programming) methods. 
+combinatorial or ILP (Integer Linear Programming) methods. 
 
 Overview
 ========
