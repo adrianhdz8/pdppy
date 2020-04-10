@@ -22,7 +22,7 @@ The outputs from the ``algorithms.py`` and ``instances.py`` module can then be v
 Installation
 ============
 
-Install from github `pdppy <https://github.com/adrianhdz8/pdppy>`_.
+Download from `github <https://github.com/adrianhdz8/pdppy>`_.
 
 
 Basics
