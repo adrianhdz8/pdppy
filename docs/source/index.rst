@@ -1,4 +1,4 @@
-Welcome to pdpy's documentation!
+Welcome to pdppy's documentation!
 ================================
 
 **pdppy** is a Python package for working with instances of the Pickup Delivery Problem (:ref:`PDP<PDP>`). 
