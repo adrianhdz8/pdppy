@@ -34,10 +34,9 @@ Learn how to use the pdppy module!
 Import Package
 --------------
 
-Individually import all of the modules from the pdppy package. 
-Assume this importation throughout documentation.
+Documentation assumes package was imported as follows.
 
->>> from pdppy import *
+>>> import pdppy as pdp
 
 
 Nodes
@@ -76,7 +75,7 @@ An input graph **G** is a user-provided graph for the ``instaces.py`` module and
 
 * The edges of **G** are undirected: **(u, v) = (v, u)** and have associated positive weight
 * **G** is connected (any node is reachable from any other node along the edges of **G**)
-* The edges of **G** have associated positive weight and all satisfy the triangle inequality  
+* The edges of **G** have associated positive weight  
 
 Take the following example with user-provided **G**:
 
@@ -142,46 +141,54 @@ This is a complete example for the use of the different modules and the function
 
 :ref:`Import<Import Package>` the modules, the NetworkX package, and any others you may need.
 
->>> from pdppy import *
+>>> import pdppy as pdp
 >>> import networkx as nx
 
 Supply your own NetworkX :ref:`input graph<Input Graph>` **G** and nodes for selection. 
 
 >>> G = nx.Graph()
 >>> G.add_weighted_edges_from([(1, 3, 1.23), (3, 4, 5),('c', 3, 2), (8, 1, 3.6), (1, 'x', 8), ('x', 'y', 10),(4, 'x', 6.4), ('c', 'x', 4.3)])
->>> H = instances.request_graph(G, 3, 8, [(1, 4), ('x', 'y')])
+>>> H = pdp.instances.request_graph(G, 3, 8, [(1, 4), ('x', 'y')])
 
 Or, use the :ref:`instances.random\_geo\_graph<Instances>` function to generate an input and request graph with *3* request pairs and a seed of *10001*.
 
->>> G2, H2 = instances.random_geo_graph(3, 10001)
+>>> G2, H2 = pdp.instances.random_geo_graph(3, 10001)
 
 Using the request graph, compute the solution using one of the methods in ``algorithms.py``.
 
->>> P = algorithms.path_build_alg(H)
+>>> P = pdp.algorithms.path_build_alg(H)
 
 Analyze and visualize the solution using the function :ref:`plot.plot\_tour<Plot>`.
 
 >>> P.graph['dist']
 49.82
->>> plot.plot_tour(P)
+>>> pdp.plot.plot_tour(P)
 
 .. image:: tutorial_random_tour.png
 
 
-For working with an OSMnx graph, simply use the :ref:`instances.city\_graph<Instances>` function.
+For working with an OSMnx graph, simply use the :ref:`instances.city\_graph<Instances>` function and query the desired city through the **city** parameter.
 
->>> from pdppy import *
+>>> import pdppy as pdp
 >>> import networkx as nx
->>> G, H = instances.city_graph('Miami, USA', k=3, seed=10001)
->>> P = algorithms.four_traversal_mst_alg(H)
+>>> G, H = pdp.instances.city_graph('Miami, USA', k=3, seed=10001)
+
+The road network could also be supplied by the user in the case changes were made to the road network graph by the user.
+
+>>> import osmnx as ox
+>>> G = ox.graph_from_place('Miami, USA', network_type='drive')
+>>> G = 
+
+>>> P = pdp.algorithms.four_traversal_mst_alg(H)
 >>> P.graph['dist']
 37243.63
 
 Can overlay tour **P** on OSMnx graph **G**.
 
->>> plot.plot_tour(P, G)
+>>> pdp.plot.plot_tour(P, G)
 
 .. image:: tutorial_osmnx_tour.png
+
 
 
 
