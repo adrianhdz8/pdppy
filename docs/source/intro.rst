@@ -71,7 +71,7 @@ The graphs handled in this package fall into one of three classifications.
 Input Graph
 ^^^^^^^^^^^
 
-An input graph **G** is a user-provided graph for the ``instaces.py`` module and should meet the following criteria:
+An input graph **G** is a user-provided graph for the ``instances.py`` module and should meet the following criteria:
 
 * The edges of **G** are undirected: **(u, v) = (v, u)** and have associated positive weight
 * **G** is connected (any node is reachable from any other node along the edges of **G**)
@@ -176,8 +176,10 @@ For working with an OSMnx graph, simply use the :ref:`instances.city\_graph<Inst
 The road network could also be supplied by the user in the case changes were made to the road network graph by the user.
 
 >>> import osmnx as ox
->>> G = ox.graph_from_place('Miami, USA', network_type='drive')
->>> G = 
+>>> G = ox.graph_from_place('Miami, USA', network_type='walk')
+>>> G, H = pdp.instances.city_graph('Miami, USA', G=G, k=3, seed=10001)
+
+A tour can then be computed over the resulting request graph **H** using one of the functions in ``algorithms.py``.
 
 >>> P = pdp.algorithms.four_traversal_mst_alg(H)
 >>> P.graph['dist']
