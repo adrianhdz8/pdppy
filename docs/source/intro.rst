@@ -173,7 +173,7 @@ For working with an OSMnx graph, simply use the :ref:`instances.city\_graph<Inst
 >>> import networkx as nx
 >>> G, H = pdp.instances.city_graph('Miami, USA', k=3, seed=10001)
 
-The road network could also be supplied by the user in the case changes were made to the road network graph by the user.
+The road network could also be supplied by the user in the case a specific kind of road network is desired by the user.
 
 >>> import osmnx as ox
 >>> G = ox.graph_from_place('Miami, USA', network_type='walk')
